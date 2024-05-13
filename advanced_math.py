@@ -20,20 +20,17 @@ def solve_quadratic(a, b, c):
         x2 = (-b - np.sqrt(delta)) / (2*a)
         return (x1, x2)
 
+def matrix_inverse(matrix):
+    """Compute the inverse of a matrix if it is invertible."""
+    if np.linalg.det(matrix) == 0:
+        return "Matrix is not invertible"
+    else:
+        return np.linalg.inv(matrix)
+
 # Example Usage
 if __name__ == "__main__":
     A = np.array([[1, 2], [3, 4]])
-    B = np.array([[2, 0], [1, 2]])
     print("Matrix A:")
     print(A)
-    print("Matrix B:")
-    print(B)
-    print("Matrix A * B:")
-    print(matrix_multiply(A, B))
-
-    matrix = np.array([[2, 1, 3], [1, 0, 0], [0, 1, 4]])
-    print("Determinant of matrix:")
-    print(determinant(matrix))
-
-    print("Solving quadratic equation x^2 - 3x + 2:")
-    print(solve_quadratic(1, -3, 2))
+    print("Inverse of Matrix A:")
+    print(matrix_inverse(A))
